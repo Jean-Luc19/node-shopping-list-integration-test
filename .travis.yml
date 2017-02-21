@@ -1,9 +1,9 @@
 language: node_js
 node_js: node
-deploy: shielded-fortress-62643
+deploy:
   provider: heroku
   api_key:
     secure: N2HQ0AP4qP7bDoNwcan0baYw4Zo8zLO4Rqi1ZMQjY/D9tg2BMoa8KSZTklJ5zbJWG0s2Ac2WbQG+CXRuNWVVUIiWXm0v9RhUkfi7bCK+6OkqmnNtiIWT/iUHVka5t1NQ/fJ2VTPxm1opvE/X5NYN2f/qNUPvMDVLlPUgRqpJL2IedjF7C/ZXdddZG5Xl9I5njJsZZ6S4uvffTg6Ob9X74hxleo3GlUfmcRr7mq+mCXkp2YpTHUu7rITcAgcwIhKKBW5SDFfYhloaPMF7Wg/FZHFAnRzGgkb4yU3xhUvhLsm3s9meG53juPXfHB82fqwLMJY+jcfIbAg7CQE3H2QdJvyCo0CvGf8vSk/e3QMIhMjFyhL8/Ci7NRklCv+0HbxubcebnB/tXpsfuV+23vVt4e+DGwp86KJzfctfTFltiwHLTeLr7cD4oGYwEAVQwFN6Oj5yjn6qaSzwd1t5wWqICWMmBrUyrWkA6UEvMva76zAnDI48VNhqDqMgt83+s+oQxv+Y7hFtiqz+LndREOYM0n7q85Mao1bsL5qlwJbD/sDTB8D2CZr1TH0+sxq08JXgYgUBnpla12a1vaaMSwQPTIaPACNxToJOxiW+TikV4VEk/VADVO1of+tZoyCXksw5CtCQithdmNBbIj2d4OQyElaIeBKB5yqGxvw4HWJ4Ivg=
-  app: node-shopping-list-integration-test
+  app: shielded-fortress-62643
   on:
     repo: Jean-Luc19/node-shopping-list-integration-test
