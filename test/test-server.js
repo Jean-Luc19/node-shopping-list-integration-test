@@ -171,9 +171,32 @@ describe('Recipes', function() {
       res.should.have.status(200);
       res.should.be.json;
       res.body.should.be.a('array');
-  
     });
   });
-
+  it('should post new items to recipes storage', function() {
+    const newItem = {name: 'popsicle', ingredients: ['ice', 'cold', 'sugar']};
+    return chai.request(app)
+    .post('/recipes')
+    .send(newItem)
+    .then(function(res) {
+      res.should.have.status(201);
+      res.should.be.json;
+      res.body.should.be.a('object');
+      res.body.should.include.keys('id', 'name', 'ingredients');
+      res.body.id.should.not.be.null;
+      res.body.should.deep.equal(Object.assign(newItem, {id:res.body.id}));
+    });
+  });
+  it('should delete items from recipes', function() {
+    return chai.request(app)
+    .get('/recipes')
+    .then(function(res) {
+      return chai.request(app)
+      .delete(`/recipes/${res.body[0].id}`);
+    })
+    .then(function(res){
+      res.should.have.status(204);
+    });
+  });
 
 });
