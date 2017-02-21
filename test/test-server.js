@@ -2,6 +2,10 @@ const chai = require('chai');
 const chaiHttp = require('chai-http');
 
 const {app, runServer, closeServer} = require('../server');
+/*
+var server = require('../server');
+var app = server.app;
+*/
 
 // this lets us use *should* style syntax in our tests
 // so we can do things like `(1 + 1).should.equal(2);`
@@ -22,6 +26,7 @@ describe('Shopping List', function() {
   // there's a possibility of a race condition where our tests start
   // running before our server has started.
   before(function() {
+    console.log('server running before tests');
     return runServer();
   });
 
@@ -31,6 +36,7 @@ describe('Shopping List', function() {
   // that starts our server, it will cause an error because the
   // server would still be running from the previous tests.
   after(function() {
+    console.log('server is closing after it runs');
     return closeServer();
   });
 
