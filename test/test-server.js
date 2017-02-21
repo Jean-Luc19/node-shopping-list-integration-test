@@ -198,5 +198,22 @@ describe('Recipes', function() {
       res.should.have.status(204);
     });
   });
+  it('should do a put update on recipes', function() {
+    const updateItems = {name: 'stew', ingredients: ['beef','water']};
+    return chai.request(app)
+    .get('/recipes')
+    .then(function(res) {
+      updateItems.id = res.body[0].id;
+      return chai.request(app)
+      .put(`/recipes/${updateItems.id}`)
+      .send(updateItems)
+    })
+    .then(function(res) {
+      res.should.have.status(200);
+      res.should.be.json;
+      res.body.should.be.a('object');
+      res.body.should.deep.equal(updateItems);
 
+    });
+  });
 });
