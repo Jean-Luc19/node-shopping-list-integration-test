@@ -68,6 +68,7 @@ describe('Shopping List', function() {
       });
   });
 
+
   // test strategy:
   //  1. make a POST request with data for a new item
   //  2. inspect response object and prove it has right
@@ -147,4 +148,32 @@ describe('Shopping List', function() {
         res.should.have.status(204);
       });
   });
+});
+
+describe('Recipes', function() {
+
+  before(function() {
+    console.log('server running before tests');
+    return runServer();
+  });
+
+
+  after(function() {
+    console.log('server is closing after it runs');
+    return closeServer();
+  });
+
+  it('show the list items on get', function() {
+    return chai.request(app)
+
+    .get('/recipes')
+    .then(function(res) {
+      res.should.have.status(200);
+      res.should.be.json;
+      res.body.should.be.a('array');
+  
+    });
+  });
+
+
 });
